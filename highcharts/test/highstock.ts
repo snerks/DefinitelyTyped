@@ -1,11 +1,10 @@
 /// <reference types="jquery" />
 import * as Highcharts from "highcharts";
 
-var someData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const someData = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-$(function () {
+$(() => {
     $('#container').highcharts('StockChart', {
-
         chart: {
             type: "arearange"
         },
@@ -55,7 +54,7 @@ $(function () {
             }
         },
 
-        series: [<Highcharts.AreaRangeChartSeriesOptions>{
+        series: [<Highcharts.AreaRangeChartSeriesOptions> {
             name: 'USD to EUR',
             data: someData,
             lineColor: "blue"

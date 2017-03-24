@@ -1,6 +1,6 @@
 // Type definitions for JQuery DataTables Buttons extension 1.1.0
 // Project: http://datatables.net/extensions/buttons/
-// Definitions by: Sam Germano <https://github.com/SammyG4Free>
+// Definitions by: Sam Germano <https://github.com/SammyG4Free>, Jim Hartford <https://github.com/jimhartford>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /// <reference types="jquery" />
@@ -80,13 +80,18 @@ declare namespace DataTables {
         */
         titleAttr?: string;
 
+        /**
+         * Button 'title' text
+         */
+        title?: string;
+
         exportOptions?: ButtonExportOptions;
         autoPrint?: boolean;
         customize?: FunctionButtonCustomize;
     }
 
     export interface FunctionButtonAvailable {
-        (dt: DataTables.DataTable, config: any): boolean
+        (dt: DataTables.Api, config: any): boolean
     }
     export interface ButtonExportOptions {
         columns?: string;
@@ -101,14 +106,14 @@ declare namespace DataTables {
     }
 
     export interface ButtonText {
-        (dt: DataTables.DataTable, node: JQuery, config: any): string
+        (dt: DataTables.Api, node: JQuery, config: any): string
     }
     export interface FunctionButtonInit {
-        (dt: DataTables.DataTable, node: JQuery, config: any): void
+        (dt: DataTables.Api, node: JQuery, config: any): void
     }
     // api object?
     export interface FunctionButtonAction {
-        (e: any, dt: DataTables.DataTable, node: JQuery, config: any): void
+        (e: any, dt: DataTables.Api, node: JQuery, config: any): void
     }
 
     export interface FunctionButtonCustomize {

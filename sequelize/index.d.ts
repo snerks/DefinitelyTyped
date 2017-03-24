@@ -2,7 +2,7 @@
 // Project: http://sequelizejs.com
 // Definitions by: samuelneff <https://github.com/samuelneff>, Peter Harris <https://github.com/codeanimal>, Ivan Drinchev <https://github.com/drinchev>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.1
+// TypeScript Version: 2.2
 
 // Based on original work by: samuelneff <https://github.com/samuelneff/sequelize-auto-ts/blob/master/lib/sequelize.d.ts>
 
@@ -481,7 +481,7 @@ declare namespace sequelize {
      * @see http://docs.sequelizejs.com/en/latest/api/associations/has-many/
      * @see Instance
      */
-    interface HasManyCreateAssociationMixin<TAttributes> {
+    interface HasManyCreateAssociationMixin<TAttributes, TInstance> {
         /**
          * Create a new instance of the associated model and associate it with this.
          * @param values The values used to create the association.
@@ -490,7 +490,7 @@ declare namespace sequelize {
         (
             values?: TAttributes,
             options?: HasManyCreateAssociationMixinOptions | CreateOptions
-        ): Promise<void>;
+        ): Promise<TInstance>;
     }
 
     /**
@@ -944,7 +944,7 @@ declare namespace sequelize {
      * @see http://docs.sequelizejs.com/en/latest/api/associations/belongs-to-many/
      * @see Instance
      */
-    interface BelongsToManyCreateAssociationMixin<TAttributes, TJoinTableAttributes> {
+    interface BelongsToManyCreateAssociationMixin<TAttributes, TInstance, TJoinTableAttributes> {
         /**
          * Create a new instance of the associated model and associate it with this.
          * @param values The values used to create the association.
@@ -953,7 +953,7 @@ declare namespace sequelize {
         (
             values?: TAttributes,
             options?: BelongsToManyCreateAssociationMixinOptions | CreateOptions | TJoinTableAttributes
-        ): Promise<void>;
+        ): Promise<TInstance>;
     }
 
     /**
@@ -3148,7 +3148,7 @@ declare namespace sequelize {
         /**
          * A list of attributes to select from the child model
          */
-        attributes?: string[];
+        attributes?: FindOptionsAttributesArray | { include?: FindOptionsAttributesArray, exclude?: Array<string> };
 
         /**
          * If true, converts to an inner join, which means that the parent model will only be loaded if it has any

@@ -522,6 +522,7 @@ declare namespace __MaterialUI {
 
     namespace propTypes {
         type horizontal = 'left' | 'middle' | 'right';
+        type tooltipHorizontal = 'left' | 'center' | 'right';
         type vertical = 'top' | 'center' | 'bottom';
         type direction = 'left' | 'right' | 'up' | 'down';
 
@@ -1548,6 +1549,7 @@ declare namespace __MaterialUI {
             completed?: boolean;
             disabled?: boolean;
             icon?: React.ReactNode | string | number;
+            iconContainerStyle?: React.CSSProperties;
             style?: React.CSSProperties;
         }
         export class StepLabel extends React.Component<StepLabelProps, {}> {
@@ -8689,7 +8691,7 @@ declare module 'material-ui/internal/SlideInChild' {
 declare module 'material-ui/internal/Tooltip' {
     interface TooltipProps extends React.Props<Tooltip> {
         className?: string;
-        horizontalPosition?: __MaterialUI.propTypes.horizontal;
+        horizontalPosition?: __MaterialUI.propTypes.tooltipHorizontal;
         label: any;
         show?: boolean;
         style?: React.CSSProperties;
